@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/lottie-web/build/player/lottie.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrambleTextPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+  <!-- Liquid Prism Filter -->
+  <svg width="0" height="0" style="position: absolute;">
+    <defs>
+      <filter id="liquid-prism-intense" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+        <feTurbulence type="fractalNoise" baseFrequency="0.001 0.005" numOctaves="1" seed="17" result="turbulence" />
+        <feComponentTransfer in="turbulence" result="mapped">
+          <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+          <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+          <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
+        </feComponentTransfer>
+        <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
+        <feSpecularLighting in="softMap" surfaceScale="5" specularConstant="1" specularExponent="100"
+          lighting-color="white" result="specLight">
+          <fePointLight x="-200" y="-200" z="300" />
+        </feSpecularLighting>
+        <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage" />
+        <feDisplacementMap in="SourceGraphic" in2="softMap" scale="200" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- NAVBAR -->
+  <nav class="nav-container">
+
+    <a href="#" class="nav-pill logo-pill">
+      oLSan.
+    </a>
+
+    <ul class="nav-pill links-pill">
+      <span class="hover-pill"></span>
+
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#journal">Journal</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#contact" class="nav-pill cta-pill">
+      Start a Project
+    </a>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </nav>
+
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#journal">Journal</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="cta-mobile">Start a Project</a></li>
+    </ul>
+  </div>
+
+
+
+
+  <section class="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-inner">
+
+      <!-- Headline -->
+      <h1 class="hero-title">
+        <span id="typing"></span>
+      </h1>
+
+      <!-- Credibility Strip -->
+      <div class="credibility">
+        <span>Open to Frontend Roles</span>
+        <span>•</span>
+        <span>Available for Freelance</span>
+        <span>•</span>
+        <span>Remote Ready</span>
+        <span>•</span>
+        <span>High Performance Focused</span>
+      </div>
+
+      <!-- Subtext -->
+      <p class="hero-subtext">
+        I combine clean code, refined UI systems, and expressive animation
+        to craft websites that perform beautifully and feel intentional.
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="/resume.pdf" class="btn-secondary" target="_blank">View Resume</a>
+      </div>
+
+    </div>
+
+    <!-- Infinite Service Scroller -->
+    <div class="service-scroller">
+      <div class="scroller-track">
+        <span class="service-pill">UI Architecture</span>
+        <span class="service-pill">Motion Systems</span>
+        <span class="service-pill">Frontend Engineering</span>
+        <span class="service-pill">High Performance</span>
+        <span class="service-pill">Design Systems</span>
+        <span class="service-pill">Responsive Development</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="service-pill">UI Architecture</span>
+        <span class="service-pill">Motion Systems</span>
+        <span class="service-pill">Frontend Engineering</span>
+        <span class="service-pill">High Performance</span>
+        <span class="service-pill">Design Systems</span>
+        <span class="service-pill">Responsive Development</span>
+      </div>
+    </div>
+
+
+
+  </section>
+
+
+
+  <section class="works" id="works">
+    <div class="works-inner">
+      <div class="works-header">
+        <h2 class="works-title">Selected Work</h2>
+      </div>
+
+      <div class="works-divider"></div>
+
+      <!-- INTERACTIVE CARDS -->
+      <div class="works-grid">
+        <!-- Card 1 - Left -->
+        <div class="work-card">
+          <div class="card-container">
+            <div class="card-inner">
+              <div class="image-wrapper">
+                <img src="https://placehold.co/600x400/0F3D2E/F5B841" alt="Project One" class="project-img">
+              </div>
+            </div>
+            <div class="project-info-outside">
+              <div class="project-number">01</div>
+              <h3 class="project-title">Interactive Dashboard</h3>
+              <p class="project-solution">Real-time analytics platform with custom reporting that increased efficiency
+                by 40%</p>
+              <ul class="tools-list">
+                <li>React 18</li>
+                <li>Tailwind CSS</li>
+                <li>Framer Motion</li>
+                <li>Recharts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 - Right -->
+        <div class="work-card">
+          <div class="card-container">
+            <div class="card-inner">
+              <div class="image-wrapper">
+                <img src="https://placehold.co/600x400/F5B841/0F3D2E" alt="Project Two" class="project-img">
+              </div>
+            </div>
+            <div class="project-info-outside">
+              <div class="project-number">02</div>
+              <h3 class="project-title">Portfolio 2024</h3>
+              <p class="project-solution">Award-winning portfolio with immersive animations and 3D elements</p>
+              <ul class="tools-list">
+                <li>Next.js 14</li>
+                <li>GSAP</li>
+                <li>Three.js</li>
+                <li>Figma</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 - Left -->
+        <div class="work-card">
+          <div class="card-container">
+            <div class="card-inner">
+              <div class="image-wrapper">
+                <img src="https://placehold.co/600x400/2a2a2a/F5B841" alt="Project Three" class="project-img">
+              </div>
+            </div>
+            <div class="project-info-outside">
+              <div class="project-number">03</div>
+              <h3 class="project-title">E-Commerce Flow</h3>
+              <p class="project-solution">Seamless shopping experience that increased conversion rates by 25%</p>
+              <ul class="tools-list">
+                <li>Vue 3</li>
+                <li>Vuex</li>
+                <li>Stripe API</li>
+                <li>GSAP</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 - Right -->
+        <div class="work-card">
+          <div class="card-container">
+            <div class="card-inner">
+              <div class="image-wrapper">
+                <img src="https://placehold.co/600x400/F5B841/2a2a2a" alt="Project Four" class="project-img">
+              </div>
+            </div>
+            <div class="project-info-outside">
+              <div class="project-number">04</div>
+              <h3 class="project-title">Motion Lab</h3>
+              <p class="project-solution">Experimental WebGL animations and interactive brand experiences</p>
+              <ul class="tools-list">
+                <li>Three.js</li>
+                <li>WebGL</li>
+                <li>Shader</li>
+                <li>Blender</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-sticky">
+      <div class="about-3d">
+        <div class="layer layer-back">CREATIVE</div>
+        <div class="layer layer-mid">DEVELOPER</div>
+        <div class="layer layer-front">ABOUT ME</div>
+      </div>
+    </div>
+
+    <!-- Add the real about section that appears after scrolling -->
+    <div class="about-content">
+      <div class="about-wrapper">
+
+        <div class="about-intro">
+          <h2>About Me</h2>
+          <p>
+            I build immersive digital experiences blending design,
+            performance and spatial interaction.
+          </p>
+        </div>
+
+        <div class="about-grid">
+
+          <div class="about-card">
+            <h3>Tools I Use</h3>
+            <ul>
+              <li>Three.js</li>
+              <li>React</li>
+              <li>GSAP</li>
+              <li>Node.js</li>
+              <li>Figma</li>
+            </ul>
+          </div>
+
+          <div class="about-card">
+            <h3>Skills</h3>
+            <ul>
+              <li>Creative Development</li>
+              <li>Frontend Architecture</li>
+              <li>UI Motion Design</li>
+              <li>Performance Optimization</li>
+            </ul>
+          </div>
+
+          <div class="about-card">
+            <h3>Education</h3>
+            <p>
+              B.S. Computer Science
+              Focus on interactive systems and design.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
