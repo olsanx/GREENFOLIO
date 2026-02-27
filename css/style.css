@@ -1051,7 +1051,7 @@ body {
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  background-image: url('/assets/images/vinylmi.png');
+  background-image: url('../assets/images/vinylmi.png');
   background-size: cover;
   background-position: center;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
