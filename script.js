@@ -1,4 +1,8 @@
-gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
+gsap.registerPlugin(ScrollTrigger);
+
+
+
+
 
 
 
@@ -309,226 +313,50 @@ window.addEventListener("scroll", () => {
 
 
 
-// ===== INTERACTIVE CARD SYSTEM =====
-const workSection = document.querySelector('.works');
-const workCards = document.querySelectorAll(".work-card");
-const cardInners = document.querySelectorAll(".card-inner");
-const infoElements = document.querySelectorAll(".project-info-outside");
+// ===== MINIMAL INTERACTIVE CARDS =====
+// ===== MINIMAL INTERACTIVE CARDS + SCROLL ENTRANCE =====
+const cards = document.querySelectorAll(".card-inner");
 
-let mouseXx = 0;
-let mouseYy = 0;
-let sectionRect = workSection.getBoundingClientRect();
-let animationFrame = null;
-let hoveredCard = null;
-
-// Update section rect on resize
-window.addEventListener('resize', () => {
-  sectionRect = workSection.getBoundingClientRect();
-});
-
-// Track which card is being hovered
-cardInners.forEach((card, index) => {
-  card.addEventListener('mouseenter', () => {
-    hoveredCard = card;
-  });
-
-  card.addEventListener('mouseleave', () => {
-    hoveredCard = null;
-  });
-});
-
-// Check hover state on scroll
-window.addEventListener('scroll', () => {
-  if (hoveredCard) {
-    const rect = hoveredCard.getBoundingClientRect();
-    const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-
-    if (!isInView) {
-      const mouseLeaveEvent = new Event('mouseleave');
-      hoveredCard.dispatchEvent(mouseLeaveEvent);
-
-      cardInners.forEach(card => {
-        card.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-        card.style.transform = '';
-      });
-
-      infoElements.forEach(info => {
-        info.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-        info.style.transform = '';
-      });
-
-      hoveredCard = null;
-    }
-  }
-});
-
-// Mouse leaves window
-document.addEventListener('mouseleave', () => {
-  if (hoveredCard) {
-    const mouseLeaveEvent = new Event('mouseleave');
-    hoveredCard.dispatchEvent(mouseLeaveEvent);
-
-    cardInners.forEach(card => {
-      card.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-      card.style.transform = '';
-    });
-
-    infoElements.forEach(info => {
-      info.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-      info.style.transform = '';
-    });
-
-    hoveredCard = null;
-  }
-});
-
-// GLOBAL MOUSE MOVE - affects both cards AND info
-workSection.addEventListener("mousemove", (e) => {
-  mouseXx = e.clientX;
-  mouseYy = e.clientY;
-
-  sectionRect = workSection.getBoundingClientRect();
-
-  if (animationFrame) {
-    cancelAnimationFrame(animationFrame);
-  }
-
-  animationFrame = requestAnimationFrame(() => {
-    const relX = (mouseXx - sectionRect.left) / sectionRect.width;
-    const relY = (mouseYy - sectionRect.top) / sectionRect.height;
-
-    workSection.style.backgroundPosition = `${50 + (relX - 0.5) * 15}% ${50 + (relY - 0.5) * 15}%`;
-    workSection.style.transition = 'background-position 0.2s cubic-bezier(0.4, 0, 0.2, 1)';
-
-    // Move both cards AND their info
-    workCards.forEach((card) => {
-      const cardInner = card.querySelector('.card-inner');
-      const info = card.querySelector('.project-info-outside');
-
-      if (cardInner && !cardInner.matches(':hover') && cardInner !== hoveredCard) {
-        const cardRect = cardInner.getBoundingClientRect();
-        const cardCenterX = cardRect.left + cardRect.width / 2;
-        const cardCenterY = cardRect.top + cardRect.height / 2;
-
-        const distX = cardCenterX - mouseXx;
-        const distY = cardCenterY - mouseYy;
-
-        const distance = Math.sqrt(distX * distX + distY * distY);
-        const maxDistance = 500;
-        const strength = Math.max(0, 1 - distance / maxDistance);
-
-        const moveX = -distX * strength * 0.5;
-        const moveY = -distY * strength * 0.5;
-
-        const limitedMoveX = Math.max(-50, Math.min(50, moveX));
-        const limitedMoveY = Math.max(-50, Math.min(50, moveY));
-
-        cardInner.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-        cardInner.style.transform = `translate(${limitedMoveX}px, ${limitedMoveY}px)`;
-
-        if (info) {
-          info.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-          info.style.transform = `translate(${limitedMoveX * 0.8}px, ${limitedMoveY * 0.8}px)`;
-        }
-      }
-    });
-
-    animationFrame = null;
-  });
-});
-
-// INDIVIDUAL CARD FOLLOW - moves both card AND its info
-cardInners.forEach((card, index) => {
-  let rafId = null;
-  const info = document.querySelectorAll('.project-info-outside')[index];
+// Card tilt hover
+cards.forEach(card => {
+  const info = card.nextElementSibling; // .project-info-outside
 
   card.addEventListener("mousemove", (e) => {
-    e.stopPropagation();
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-    if (rafId) {
-      cancelAnimationFrame(rafId);
-    }
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
 
-    rafId = requestAnimationFrame(() => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+    const moveX = ((x - centerX) / centerX) * 15;
+    const moveY = ((y - centerY) / centerY) * 15;
 
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const moveX = ((x - centerX) / centerX) * 45;
-      const moveY = ((y - centerY) / centerY) * 45;
-
-      card.style.transition = 'transform 0.15s cubic-bezier(0.4, 0, 0.2, 1)';
-      card.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.03)`;
-
-      if (info) {
-        info.style.transition = 'transform 0.2s cubic-bezier(0.4, 0, 0.2, 1)';
-        info.style.transform = `translate(${moveX * 0.6}px, ${moveY * 0.6}px)`;
-      }
-    });
+    card.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.02)`;
+    if (info) info.style.transform = `translate(${moveX * 0.3}px, ${moveY * 0.3}px)`;
   });
 
   card.addEventListener("mouseleave", () => {
-    if (rafId) {
-      cancelAnimationFrame(rafId);
-    }
-
-    hoveredCard = null;
-
-    card.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-    card.style.transform = '';
-
-    if (info) {
-      info.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-      info.style.transform = '';
-    }
+    card.style.transform = "translate(0,0) scale(1)";
+    if (info) info.style.transform = "translate(0,0)";
   });
 });
 
-// Mouse leaves section
-workSection.addEventListener("mouseleave", () => {
-  cardInners.forEach(card => {
-    card.style.transition = 'transform 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
-    card.style.transform = '';
-  });
+// Scroll entrance using IntersectionObserver
+const observerOptions = {
+  threshold: 0.1
+};
 
-  infoElements.forEach(info => {
-    info.style.transition = 'transform 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
-    info.style.transform = '';
-  });
-
-  hoveredCard = null;
-  workSection.style.transition = 'background-position 1.5s ease';
-  workSection.style.backgroundPosition = '50% 50%';
-});
-
-// Scroll animation with hover protection
-window.addEventListener("scroll", () => {
-  const viewportHeight = window.innerHeight;
-
-  workCards.forEach((card) => {
-    const cardInner = card.querySelector('.card-inner');
-    const info = card.querySelector('.project-info-outside');
-
-    if (cardInner && cardInner !== hoveredCard && !cardInner.matches(':hover')) {
-      const rect = cardInner.getBoundingClientRect();
-      const offset = rect.top;
-      const progress = Math.min(Math.max((viewportHeight - offset - 200) / viewportHeight, 0), 1);
-
-      const floatY = progress * 20;
-
-      cardInner.style.transform = `translateY(${floatY}px)`;
-      cardInner.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-
-      if (info) {
-        info.style.transform = `translateY(${floatY}px)`;
-        info.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-      }
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      obs.unobserve(entry.target); // only trigger once
     }
   });
-});
+}, observerOptions);
+
+cards.forEach(card => observer.observe(card));
 
 
 
@@ -564,6 +392,58 @@ window.addEventListener("scroll", () => {
 });
 
 
+(function () {
+  const totalSeconds = 384;
+  const startSeconds = 355;
+
+  const timeEl = document.getElementById('liveMin');
+  const fillEl = document.getElementById('progressFill');
+
+  let currentSeconds = startSeconds;
+
+  function formatTime(sec) {
+    let m = Math.floor(sec / 60);
+    let s = Math.floor(sec % 60);
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function updateDisplay() {
+    // Update timestamp
+    timeEl.textContent = formatTime(currentSeconds);
+
+    // Update progress bar width (percentage)
+    let percent = (currentSeconds / totalSeconds) * 100;
+    fillEl.style.width = percent + '%';
+  }
+
+  // Advance time every second
+  setInterval(() => {
+    currentSeconds++;
+    if (currentSeconds > totalSeconds) {
+      currentSeconds = 0; // Loop back to start
+    }
+    updateDisplay();
+  }, 1000);
+
+  // Initial display
+  updateDisplay();
+})();
+
+
+gsap.from(".about-grid .box", {
+  scrollTrigger: {
+    trigger: ".about-grid",
+    start: "top 50%",
+  },
+  duration: 1,
+  opacity: 0,
+  y: 50,
+  rotation: 8,
+  scale: 0.9,
+  stagger: 0.2,
+  ease: "power3.out",
+  ease: "elastic.out(2, 0.5)"
+});
 
 
 

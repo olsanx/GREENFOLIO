@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
   <script src="https://unpkg.com/lottie-web/build/player/lottie.min.js"></script>
-  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrambleTextPlugin.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
@@ -147,6 +147,13 @@
 
 
   <section class="works" id="works">
+    <div class="works-editorial-scroll">
+      <div class="scroll-track">
+        <span>CREATING DIGITAL EXPERIENCES • </span>
+        <span>CREATING DIGITAL EXPERIENCES • </span>
+        <span>CREATING DIGITAL EXPERIENCES • </span>
+      </div>
+    </div>
     <div class="works-inner">
       <div class="works-header">
         <h2 class="works-title">Selected Work</h2>
@@ -154,18 +161,18 @@
 
       <div class="works-divider"></div>
 
-      <!-- INTERACTIVE CARDS -->
       <div class="works-grid">
         <!-- Card 1 - Left -->
         <div class="work-card">
           <div class="card-container">
             <div class="card-inner">
               <div class="image-wrapper">
-                <img src="https://placehold.co/600x400/0F3D2E/F5B841" alt="Project One" class="project-img">
+                <img src="./assets/images/Macbook-Air-www.timilehinoyintoke.com.webp" alt="Project One"
+                  class="project-img">
               </div>
             </div>
             <div class="project-info-outside">
-              <div class="project-number">01</div>
+              <div class="project-number">[01]</div>
               <h3 class="project-title">Interactive Dashboard</h3>
               <p class="project-solution">Real-time analytics platform with custom reporting that increased efficiency
                 by 40%</p>
@@ -184,11 +191,11 @@
           <div class="card-container">
             <div class="card-inner">
               <div class="image-wrapper">
-                <img src="https://placehold.co/600x400/F5B841/0F3D2E" alt="Project Two" class="project-img">
+                <img src="./assets/images/Macbook-Air-nolaenergy.net.webp" alt="Project Two" class="project-img">
               </div>
             </div>
             <div class="project-info-outside">
-              <div class="project-number">02</div>
+              <div class="project-number">[02]</div>
               <h3 class="project-title">Portfolio 2024</h3>
               <p class="project-solution">Award-winning portfolio with immersive animations and 3D elements</p>
               <ul class="tools-list">
@@ -206,11 +213,11 @@
           <div class="card-container">
             <div class="card-inner">
               <div class="image-wrapper">
-                <img src="https://placehold.co/600x400/2a2a2a/F5B841" alt="Project Three" class="project-img">
+                <img src="./assets/images/Macbook-Air-olsanx.github.io.webp" alt="Project Three" class="project-img">
               </div>
             </div>
             <div class="project-info-outside">
-              <div class="project-number">03</div>
+              <div class="project-number">[03]</div>
               <h3 class="project-title">E-Commerce Flow</h3>
               <p class="project-solution">Seamless shopping experience that increased conversion rates by 25%</p>
               <ul class="tools-list">
@@ -228,11 +235,11 @@
           <div class="card-container">
             <div class="card-inner">
               <div class="image-wrapper">
-                <img src="https://placehold.co/600x400/F5B841/2a2a2a" alt="Project Four" class="project-img">
+                <img src="./assets/images/Macbook-Air-olsanx.github.io (1).webp" alt="Project Four" class="project-img">
               </div>
             </div>
             <div class="project-info-outside">
-              <div class="project-number">04</div>
+              <div class="project-number">[04]</div>
               <h3 class="project-title">Motion Lab</h3>
               <p class="project-solution">Experimental WebGL animations and interactive brand experiences</p>
               <ul class="tools-list">
@@ -244,65 +251,144 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
+
 
   <section class="about" id="about">
     <div class="about-sticky">
       <div class="about-3d">
         <div class="layer layer-back">CREATIVE</div>
         <div class="layer layer-mid">DEVELOPER</div>
-        <div class="layer layer-front">ABOUT ME</div>
+        <div class="layer layer-front">A GLIMPSE INTO ME</div>
       </div>
     </div>
 
     <!-- Add the real about section that appears after scrolling -->
     <div class="about-content">
-      <div class="about-wrapper">
+      <div class="about-grid">
+        <!-- 1 PROFILE -->
+        <div class="box profile"><img src="./assets/images/proff.jpeg" alt=""></div>
 
-        <div class="about-intro">
-          <h2>About Me</h2>
-          <p>
-            I build immersive digital experiences blending design,
-            performance and spatial interaction.
-          </p>
+        <!-- 2 ME IN BRIEF -->
+        <div class="box brief">
+          <h3 class="me-heading">Me In Brief</h3>
+          <p>I’m a developer and writer who builds thoughtful digital experiences with care and intention. I like clean
+            structure, sharp details, and work that feels honest. Code, for me, isn’t just function... it’s rhythm,
+            mood,
+            and expression.</p>
+
+          <p>I move between logic and language, engineering and art. Whether I’m building a website or shaping a line of
+            text, I’m always chasing clarity, feeling, and something that quietly lingers.</p>
         </div>
 
-        <div class="about-grid">
-
-          <div class="about-card">
-            <h3>Tools I Use</h3>
-            <ul>
-              <li>Three.js</li>
-              <li>React</li>
-              <li>GSAP</li>
-              <li>Node.js</li>
-              <li>Figma</li>
-            </ul>
+        <!-- 3 VINYL (COMPLETE with synchronized progress + time) -->
+        <div class="box vinyl-box">
+          <div class="vinyl-wrapper">
+            <div class="vinyl" id="vinyl"></div>
           </div>
 
-          <div class="about-card">
-            <h3>Skills</h3>
-            <ul>
-              <li>Creative Development</li>
-              <li>Frontend Architecture</li>
-              <li>UI Motion Design</li>
-              <li>Performance Optimization</li>
-            </ul>
+          <!-- SOUND WAVE -->
+          <!-- SOUND WAVE - with all 9 bars -->
+          <div class="wave-container">
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
           </div>
 
-          <div class="about-card">
-            <h3>Education</h3>
-            <p>
-              B.S. Computer Science
-              Focus on interactive systems and design.
-            </p>
-          </div>
+          <div class="vinyl-info">
+            <span>Michael Jackson</span>
+            <span>Heal The World</span>
 
+            <!-- PROGRESS BAR (fill width controlled by JS) -->
+            <div class="progress">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <!-- TIMESTAMP -->
+            <div class="time-row">
+              <span class="current-time" id="liveMin">1:45</span>
+              <span class="separator">/</span>
+              <span class="total-time">6:24</span>
+            </div>
+          </div>
         </div>
 
+        <!-- 4 TOOLS -->
+        <div class="box tools">
+          <h3 class="toolz">Tools I Use</h3>
+          <div class="tools-scroller">
+            <div class="tools-track">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="react">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-plain.svg" alt="css">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="figma">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="node">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                alt="tailwindcss">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-plain.svg" alt="html">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg"
+                alt="vanilla-JS">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="react">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-plain.svg" alt="css">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="figma">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="node">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                alt="tailwindcss">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-plain.svg" alt="html">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg"
+                alt="vanilla-JS">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="react">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-plain.svg" alt="css">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="figma">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="node">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                alt="tailwindcss">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-plain.svg" alt="html">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg"
+                alt="vanilla-JS">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="react">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-plain.svg" alt="css">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="figma">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="node">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                alt="tailwindcss">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-plain.svg" alt="html">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg"
+                alt="vanilla-JS">
+
+
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 SKILLS -->
+        <div class="box skills">
+          <h3 class="skillz">Skills & Services</h3>
+          <ul>
+            <li>Creative Development</li>
+            <li>3D Web Experiences</li>
+            <li>Frontend Architecture</li>
+            <li>UI Motion Systems</li>
+            <li>Performance Optimization</li>
+          </ul>
+        </div>
+
+        <!-- 6 PHILOSOPHY -->
+        <div class="box philosophy">
+          <h3 class="skillz">Philosophy</h3>
+          <p>Design should feel intentional. Code should feel invisible. Experience should feel inevitable.</p>
+        </div>
       </div>
+
+    </div>
 
     </div>
   </section>
