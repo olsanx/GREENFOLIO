@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Martian+Mono:wght@100..800&display=swap');
 
 *,
 *::before,
@@ -70,14 +70,23 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: bodro;
+  src: url("../fonts/bodro.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 body {
   font-family: "Inter", sans-serif;
-  background: var(--paper);
+  background: linear-gradient(to bottom, #040f0b 0%, #071e17 100%);
   color: var(--ink);
   line-height: 1.65;
-  cursor: ;
+  cursor: none;
   overflow-x: hidden;
+  max-width: 100%;
+
 }
 
 
@@ -87,11 +96,11 @@ body {
 
 .nav-container {
   position: fixed;
-  top: 1.2rem;
+  top: .6rem;
   left: 50%;
   transform: translateX(-50%);
   width: 95%;
-  max-width: 1200px;
+
 
   display: flex;
   justify-content: space-between;
@@ -357,6 +366,59 @@ body {
 
 
 
+.loader {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, #000 0%, #050505 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: transform 1.2s cubic-bezier(.77, 0, .18, 1);
+}
+
+.loader-name {
+  font-size: clamp(2rem, 6vw, 5rem);
+  color: #F5B841;
+  font-weight: 800;
+  letter-spacing: 0.5rem;
+  font-family: "Moga";
+  text-transform: uppercase;
+}
+
+.loader-name span {
+  display: inline-block;
+  animation: popJump 3s ease infinite;
+  /* slower than before */
+}
+
+@keyframes popJump {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  30% {
+    transform: translateY(-12px) scale(1.08);
+  }
+
+  50% {
+    transform: translateY(0) scale(0.98);
+  }
+
+  70% {
+    transform: translateY(-6px) scale(1.03);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.loader.lift {
+  transform: translateY(-105%);
+  transition: transform 1.2s cubic-bezier(.77, 0, .18, 1);
+}
+
 
 /*HERO*/
 
@@ -464,6 +526,7 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
 
 
 
@@ -577,6 +640,144 @@ body {
   font-weight: 700;
   white-space: nowrap;
 }
+
+
+
+@media (max-width: 900px) {
+  .hero-inner {
+    padding: 0 5%;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 7vw, 3.8rem);
+  }
+
+  .hero-subtext {
+    font-size: 1rem;
+    max-width: 550px;
+  }
+
+  .credibility {
+    font-size: 0.75rem;
+    gap: 0.4rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .service-scroller {
+    width: 90%;
+    bottom: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-inner {
+    padding: 0 3%;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 8vw, 3rem);
+  }
+
+  .hero-subtext {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  .credibility {
+    font-size: 0.7rem;
+    gap: 0.3rem;
+  }
+
+  .service-scroller {
+    width: 95%;
+    bottom: 10px;
+  }
+
+  .service-pill {
+    padding: 0.7rem 1rem;
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: clamp(1.5rem, 9vw, 2.5rem);
+  }
+
+  .hero-subtext {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .credibility {
+    font-size: 0.65rem;
+    gap: 0.2rem;
+    flex-direction: column;
+  }
+
+  .hero-cta {
+    gap: 0.8rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    font-size: 0.85rem;
+    padding: 0.7rem 1.2rem;
+  }
+
+  .service-pill {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 280px) {
+
+  /* iWatch and very small screens */
+  .hero-title {
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtext {
+    font-size: 0.75rem;
+  }
+
+  .credibility {
+    font-size: 0.6rem;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    font-size: 0.7rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .service-pill {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.55rem;
+  }
+}
+
+
+
 
 
 
@@ -883,8 +1084,9 @@ body {
   background: linear-gradient(to bottom, rgba(20, 37, 31, 0) 0%, rgb(0, 0, 0) 100%);
 }
 
+
 .about {
-  height: 300vh;
+  min-height: 100vh;
   position: relative;
   background:
     radial-gradient(circle at 50% 40%, rgba(15, 61, 46, 0.4), transparent 60%),
@@ -918,12 +1120,13 @@ body {
   top: 50%;
   left: 50%;
   transform-style: preserve-3d;
-  font-size: 8vw;
+  font-size: clamp(1.8rem, 8vw, 6rem);
   font-weight: 600;
   transform: translate(-50%, -50%);
   transition: transform 0.05s linear;
   /* Faster transition for smoother movement */
   will-change: transform;
+
 }
 
 .layer-back {
@@ -943,7 +1146,7 @@ body {
 /* Real about content that appears after scrolling */
 .about-content {
   position: relative;
-  top: 100vh;
+  margin-top: 100vh;
   min-height: 100vh;
   padding: 6rem 2rem;
   color: white;
@@ -1393,6 +1596,12 @@ h3 {
   }
 }
 
+
+
+
+
+
+
 /* MOBILE SCREENS: <480px */
 @media (max-width: 480px) {
   .about-content {
@@ -1438,5 +1647,711 @@ h3 {
 
   .time-row {
     font-size: 0.65rem;
+  }
+}
+
+
+.connect-section {
+  position: sticky;
+  min-height: 100vh;
+  padding: 10rem 6vw 6rem;
+  background: linear-gradient(to bottom, #040f0b 0%, #071e17 100%);
+  top: 0;
+  z-index: 1;
+  isolation: isolate;
+  font-family: "Inter", sans-serif;
+  color: #EDEDED;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+
+/* Ambient effects */
+.connect-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+.orb-1 {
+  width: 700px;
+  height: 700px;
+  top: -200px;
+  left: -200px;
+  background: radial-gradient(circle, rgba(15, 61, 46, .6) 0%, transparent 70%);
+}
+
+.orb-2 {
+  width: 600px;
+  height: 600px;
+  bottom: -150px;
+  right: -150px;
+  background: radial-gradient(circle, rgba(245, 184, 65, .06) 0%, transparent 70%);
+}
+
+.ambient-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(245, 184, 65, .025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 184, 65, .025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 10%, transparent 100%);
+}
+
+/* Reveal */
+.cs-fade {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .65s ease, transform .65s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.cs-fade--d0 {
+  transition-delay: 0s;
+}
+
+.cs-fade--d1 {
+  transition-delay: 0.1s;
+}
+
+.cs-fade--d2 {
+  transition-delay: 0.2s;
+}
+
+.cs-fade--d3 {
+  transition-delay: 0.3s;
+}
+
+.cs-fade--d4 {
+  transition-delay: 0.4s;
+}
+
+.cs-fade.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Availability pill */
+.avail {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: .38rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(245, 184, 65, .2);
+  background: rgba(245, 184, 65, .04);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(245, 184, 65, .7);
+  margin-bottom: 2.5rem;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: pulse-ring 2s ease-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, .5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 7px rgba(74, 222, 128, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+  }
+}
+
+/* Headline */
+.connect-headline {
+  font-family: "Halant", serif;
+  font-size: clamp(3.8rem, 9vw, 7rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -.03em;
+  color: #EDEDED;
+  margin-bottom: 2rem;
+  max-width: 900px;
+}
+
+.connect-headline em {
+  font-style: italic;
+  color: #F5B841;
+  display: block;
+  min-height: 1.1em;
+}
+
+.typed-cursor {
+  color: #F5B841;
+  animation: blink .7s step-end infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: 0
+  }
+}
+
+/* Body */
+.connect-body {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(237, 237, 237, .5);
+  max-width: 520px;
+  margin: 0 auto 3rem;
+}
+
+/* CTA row */
+.cta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.email-cta,
+.book-call-cta,
+.resume-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .9rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: .95rem;
+  text-decoration: none;
+  transition: .25s ease;
+  backdrop-filter: blur(10px);
+}
+
+.email-cta {
+  border: 1px solid rgba(245, 184, 65, .35);
+  background: rgba(245, 184, 65, .05);
+  color: #F5B841;
+}
+
+.email-cta:hover {
+  background: rgba(245, 184, 65, .12);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(245, 184, 65, .15);
+}
+
+.book-call-cta {
+  border: 1px solid rgba(245, 184, 65, .35);
+  background: #F5B841;
+  color: #000;
+}
+
+.book-call-cta:hover {
+  background: #ffd060;
+  transform: translateY(-2px);
+}
+
+.resume-cta {
+  border: 1px solid rgba(237, 237, 237, .2);
+  background: transparent;
+  color: #EDEDED;
+}
+
+.resume-cta:hover {
+  background: rgba(237, 237, 237, .05);
+  transform: translateY(-2px);
+}
+
+/* Arrow inside email CTA */
+.email-cta__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #F5B841;
+  color: #000;
+  transition: .25s ease;
+  flex-shrink: 0;
+}
+
+.email-cta:hover .email-cta__arrow {
+  transform: translateX(3px);
+}
+
+/* Divider */
+.connect-rule {
+  width: 100%;
+  max-width: 700px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(245, 184, 65, .15), transparent);
+  margin-bottom: 2.5rem;
+}
+
+/* Bottom row */
+.connect-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 700px;
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  justify-content: center;
+}
+
+.social-link {
+  color: rgba(237, 237, 237, .4);
+  font-size: .85rem;
+  text-decoration: none;
+  transition: .2s;
+}
+
+.social-link:hover {
+  color: #F5B841;
+}
+
+.social-dot {
+  color: rgba(237, 237, 237, .15);
+}
+
+.trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  justify-content: center;
+  font-size: .75rem;
+  color: rgba(237, 237, 237, .2);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.trust-sep {
+  color: rgba(237, 237, 237, .1);
+}
+
+/* Responsive */
+@media(max-width:600px) {
+  .connect-section {
+    padding: 7rem 1.5rem 5rem;
+  }
+
+  .connect-headline {
+    font-size: clamp(3rem, 12vw, 4.5rem);
+  }
+
+  .email-cta,
+  .book-call-cta,
+  .resume-cta {
+    font-size: .85rem;
+    padding: .75rem 1.2rem;
+  }
+}
+
+.footer {
+
+  position: relative;
+  z-index: 2;
+  background-color: #cbd9c5;
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;
+  height: 60%;
+  min-height: 560px;
+  /* maintain proportional height but flexible on mobile */
+  border-radius: 2rem 2rem 0 0;
+  overflow: hidden;
+  color: #0F3D2E;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* ----- footer top area (logo, links, email) ----- */
+.footer-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 1.8rem;
+  column-gap: 2rem;
+}
+
+.logo-footer {
+  font-family: "glanuler", sans-serif;
+  font-size: 3.6rem;
+  text-decoration: none;
+  color: #0F3D2E;
+  padding: .02rem 1.9rem;
+}
+
+/* links list styling */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li a {
+  font-family: "Martian Mono", monospace;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #0F3D2E;
+  transition: opacity 0.2s ease;
+  letter-spacing: 0.03em;
+}
+
+.footer-links li a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+/* email on the right (preserved original style) */
+.footer-email {
+  font-family: "Martian Mono", monospace;
+  text-decoration: underline;
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+/* adjust email link color */
+.footer-email a {
+  font-family: "Martian Mono", monospace;
+  text-decoration: underline;
+  color: #0F3D2E;
+}
+
+/* ----- date & time area (stacked on top of each other on all screens) ----- */
+.footer-datetime {
+  display: flex;
+  flex-direction: column;
+  /* date above time exactly as required */
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 3rem;
+  gap: 0.25rem;
+}
+
+.footer-dt {
+  font-family: "Martian Mono", monospace;
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* smaller adjustments for date/time text */
+#footer-date {
+  display: block;
+}
+
+#footer-time {
+  display: block;
+}
+
+/* ----- OLSANITY big text (reduces on smaller screens) ----- */
+.footer-name {
+  font-family: "Impact", "Arial Black", sans-serif;
+  font-size: 21.5rem;
+  font-weight: 600;
+  letter-spacing: 0.7rem;
+  line-height: 1;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  text-transform: uppercase;
+}
+
+/* horizontal rule */
+.footer-line {
+  background-color: #0F3D2E;
+  height: 2px;
+  border: none;
+  margin-top: 0.5rem;
+  margin-bottom: 1.8rem;
+  width: 100%;
+}
+
+/* copyright row: centered, with proper copyright symbol */
+.footer-copyright {
+  font-family: "Martian Mono", monospace;
+  font-size: 0.85rem;
+  text-align: center;
+  letter-spacing: 0.3px;
+  padding-top: 0.5rem;
+  border-top: none;
+  color: #0F3D2E;
+}
+
+/* ensure proper symbol */
+.copyright-symbol {
+  font-family: inherit;
+}
+
+/* make sure all text colors match brand */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- RESPONSIVE BREAKPOINTS (preserve initial design, only adapt where necessary) ---------- */
+@media screen and (max-width: 1280px) {
+
+  .footer-name {
+    font-size: 16rem;
+    /* reduce size on medium-large tablets */
+    letter-spacing: 0.4rem;
+  }
+
+  .footer-dt {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .footer-name {
+    font-size: 15rem;
+    /* reduce size on medium-large tablets */
+    letter-spacing: 0.4rem;
+  }
+
+  .footer-dt {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .footer {
+    padding: 2rem 1.8rem;
+    height: auto;
+    min-height: auto;
+  }
+
+  .footer-name {
+    font-size: 10rem;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.1;
+    letter-spacing: 0.3rem;
+  }
+
+  .footer-dt {
+    font-size: 4rem;
+  }
+
+  .logo-footer {
+    font-size: 3rem;
+  }
+
+  .footer-links {
+    gap: 1.5rem;
+  }
+}
+
+/* small screens: logo and links beside each other, email beneath them */
+@media screen and (max-width: 760px) {
+  .footer-top {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+  }
+
+  /* Logo and links stay side by side horizontally */
+  .logo-footer {
+    margin-right: 1rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  /* The container for links naturally sits next to logo */
+  .footer-top>div:first-child+div {
+    margin-left: 0;
+  }
+
+  /* force links to be beside logo by making the wrapper inline-flex? better: we restructure order but maintain original HTML order: logo, then ul, then email. 
+         we want on smaller screens: logo + links on same row, then email on new row (full width). 
+         Using flex wrap with order? we can apply order with media */
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .logo-footer {
+    order: 1;
+    margin-right: 2rem;
+  }
+
+  .footer-top ul.footer-links {
+    order: 2;
+    flex: 0 1 auto;
+  }
+
+  .footer-email {
+    order: 3;
+    width: 100%;
+    margin-left: 0 !important;
+    margin-top: 0.5rem;
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  /* ensure email no longer uses margin-left auto on small */
+  .footer-top>div:last-child {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .footer-datetime {
+    margin-top: 2rem;
+  }
+
+  .footer-name {
+    font-size: 5rem;
+    letter-spacing: 0.2rem;
+    margin-top: 1rem;
+  }
+
+  .footer-line {
+    margin-top: 0.2rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .footer {
+    padding: 1.5rem;
+  }
+
+  .footer-dt {
+    font-size: 2.8rem;
+  }
+
+  .footer-name {
+    font-size: 3.4rem;
+    letter-spacing: 0.15rem;
+  }
+
+  .logo-footer {
+    font-size: 2.2rem;
+  }
+
+  .footer-links {
+    gap: 1rem;
+  }
+
+  .footer-links li a {
+    font-size: 0.8rem;
+  }
+
+  .footer-email {
+    font-size: 0.85rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.7rem;
+  }
+}
+
+/* extra small devices: ensure stacking does not break */
+@media screen and (max-width: 480px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* on very small, if needed, but we keep logo+links side by side only if they fit? 
+         but the previous media ensures logo+links try to stay horizontal until too narrow.
+         At 480px we can allow logo and links to stack for readability? but requirement: 
+         "my links should be beside my logo footer on smaller screens with the mail beneath them"
+         That indicates even on small, try to keep logo + links inline. However if screen extremely narrow,
+         we can keep inline by flex wrap, but they may break into two lines: but that's still "beside" in flex sense.
+         We'll preserve the inline behavior with flex wrap, but not force column for logo+links.
+         However we need mail beneath, which is already done. 
+         So on 480px, we refine spacing, but do not force column on the first two items */
+  .logo-footer,
+  .footer-top ul.footer-links {
+    margin-right: 0;
+  }
+
+  .footer-top {
+    gap: 1rem;
+  }
+
+  .footer-links {
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+}
+
+/* Additional touch to ensure the time and date are truly on top of each other (already using flex column) */
+/* ensure the big olsanity reduces gradually without overflow */
+.footer-name {
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+}
+
+@media (max-width: 800px) {
+  .footer-name {
+    white-space: normal;
+    word-break: break-word;
+    font-size: 7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-name {
+    font-size: 4rem;
+    line-height: 1.2;
   }
 }

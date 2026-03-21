@@ -87,6 +87,7 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
+
 // Lights
 scene.add(new THREE.AmbientLight(0xffffff, 0.3));
 const pointLight = new THREE.PointLight(0xff6f3c, 1.2);
@@ -230,6 +231,32 @@ window.addEventListener("resize", () => {
 
 
 
+const loaderName = document.querySelector(".loader-name");
+
+// Wrap letters with random animation delay
+loaderName.innerHTML = loaderName.textContent
+  .split("")
+  .map(letter => {
+    const delay = (Math.random() * 0.6).toFixed(2); // 0 → 0.6s random
+    return `<span style="animation-delay:${delay}s">${letter}</span>`;
+  })
+  .join("");
+
+// Curtain lift
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
+
+  setTimeout(() => {
+    loader.classList.add("lift");
+  }, 2000); // keep loader visible a bit
+  setTimeout(() => {
+    loader.remove();
+  }, 3200);
+});
+
+
+
+
 const titles = [
   "Frontend Developer specializing in modern UI and motion.",
   "Building high-performance, scalable, refined web experiences.",
@@ -307,7 +334,20 @@ window.addEventListener("scroll", () => {
 });
 
 
+document.querySelectorAll(".btn-primary, .btn-secondary")
+  .forEach(btn => {
+    btn.addEventListener("mousemove", e => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
 
+      btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    });
+
+    btn.addEventListener("mouseleave", () => {
+      btn.style.transform = "translate(0,0)";
+    });
+  });
 
 
 
@@ -375,7 +415,7 @@ window.addEventListener("scroll", () => {
   layers.forEach((layer, index) => {
     const depth = (index - 1) * 400;
     // Increase movement range to push layers completely out of view
-    const movement = clampedProgress * 2000; // Increased from 800 to 2000
+    const movement = clampedProgress * 3000; // Increased from 800 to 2000
 
     layer.style.transform = `
       translate(-50%, -50%)
@@ -441,9 +481,113 @@ gsap.from(".about-grid .box", {
   rotation: 8,
   scale: 0.9,
   stagger: 0.2,
-  ease: "power3.out",
   ease: "elastic.out(2, 0.5)"
 });
+
+
+
+
+
+(function () {
+
+  /* Scroll reveal */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add("in-view");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".cs-fade").forEach(el => io.observe(el));
+
+  /* Typewriter — starts when section is in view */
+  const lines = [
+    "Let's talk.",
+    "I'd love to help.",
+    "Fill me in."
+  ];
+
+  const textEl = document.querySelector(".typed-text");
+  const sectionEl = document.querySelector(".connect-section");
+  if (!textEl || !sectionEl) return;
+
+  let pi = 0, ci = 0, deleting = false, going = false;
+
+  function tick() {
+    const phrase = lines[pi];
+    if (!deleting) {
+      textEl.textContent = phrase.slice(0, ++ci);
+      if (ci === phrase.length) {
+        deleting = true;
+        setTimeout(tick, 2000);
+        return;
+      }
+    } else {
+      textEl.textContent = phrase.slice(0, --ci);
+      if (ci === 0) {
+        deleting = false;
+        pi = (pi + 1) % lines.length;
+        setTimeout(tick, 350);
+        return;
+      }
+    }
+    setTimeout(tick, deleting ? 35 : 68);
+  }
+
+  const startObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !going) {
+      going = true;
+      setTimeout(tick, 700);
+      startObs.disconnect();
+    }
+  }, { threshold: 0.2 });
+
+  startObs.observe(sectionEl);
+
+})();
+
+
+
+
+
+// Function to update date and time dynamically (real-time)
+function updateDateTime() {
+  const now = new Date();
+
+  // Format date: e.g., "MAR 21, 2026" — but we follow classic style: month day, year
+  const optionsDate = { year: 'numeric', month: 'short', day: 'numeric' };
+  const dateString = now.toLocaleDateString('en-US', optionsDate).toUpperCase();
+  // example: MAR 21, 2026
+
+  // Format time: HH:MM:SS (24hr or 12hr? I choose 24hr for clean tech look, but can do 12hr)
+  // But keeping consistency with "Martian Mono", use HH:MM:SS 24h
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  let seconds = now.getSeconds();
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${ampm}`;
+
+  const dateElement = document.getElementById('footer-date');
+  const timeElement = document.getElementById('footer-time');
+  if (dateElement) dateElement.textContent = dateString;
+  if (timeElement) timeElement.textContent = formattedTime;
+}
+
+// initial call
+updateDateTime();
+// update every second for live ticking time
+setInterval(updateDateTime, 1000);
+
+
+
+
+
+
+
 
 
 
