@@ -71,8 +71,8 @@
 }
 
 @font-face {
-  font-family: bodro;
-  src: url("../fonts/bodro.otf") format("opentype");
+  font-family: Impact;
+  src: url("../fonts/impact.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -2098,7 +2098,7 @@ h3 {
 
 /* ----- OLSANITY big text (reduces on smaller screens) ----- */
 .footer-name {
-  font-family: "Impact", "Arial Black", sans-serif;
+  font-family: "Impact", sans-serif;
   font-size: 21.5rem;
   font-weight: 600;
   letter-spacing: 0.7rem;
