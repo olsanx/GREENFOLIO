@@ -4,122 +4,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nola Energy — Case Study · oLSan.</title>
     <link rel="stylesheet" href="./css/case.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
 
-    <section class="container hero">
-        <div class="hero-text">
-            <p class="eyebrow">Case Study</p>
-            <h1>Nola Energy</h1>
-            <p class="category">BUSINESS LANDING PAGE</p>
+    <div class="read-progress" id="readProgress"></div>
 
-            <p class="desc">
-                Built to communicate the company’s offer within seconds, this landing page focuses on
-                clarity, structure, and search visibility to strengthen Nola Energy’s online presence.
-            </p>
-            <p class="meta">Role: Development & SEO Structuring · Year: 2025</p>
+    <nav class="cs-nav" id="csNav">
+        <a href="index.html" class="cs-nav__back">← Back</a>
+        <a href="https://nolaenergy.net" target="_blank" class="cs-nav__live">Live Site ↗</a>
+    </nav>
 
-            <div class="links">
-                <a href="#">Live Site</a>
-                <a href="#">GitHub</a>
+    <!-- HERO -->
+    <header class="cs-hero">
+        <p class="cs-eyebrow" id="h-eye">Case Study · Business Landing Page</p>
+        <h1 class="cs-title" id="h-title">Nola Energy</h1>
+        <p class="cs-desc" id="h-desc">
+            Built to communicate the company’s offer within seconds, this landing page focuses on
+            clarity, structure, and search visibility to strengthen Nola Energy’s online presence.
+        </p>
+
+        <div class="cs-meta" id="h-meta">
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">Year</div>
+                <div class="cs-meta__val">2025</div>
+            </div>
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">Role</div>
+                <div class="cs-meta__val">Development & SEO Structuring</div>
+            </div>
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">Type</div>
+                <div class="cs-meta__val">Landing Page</div>
+            </div>
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">Timeline</div>
+                <div class="cs-meta__val">1 week</div>
             </div>
         </div>
 
-        <div class="hero-img">
-            <img src="./assets/images/Macbook-Air-nolaenergy.net.webp" alt="project preview">
+        <div class="cs-cta" id="h-cta">
+            <a href="https://nolaenergy.net" target="_blank" class="cs-btn cs-btn--gold">
+                View Live Site ↗
+            </a>
+            <a href="index.html#works" class="cs-btn cs-btn--ghost">All Projects</a>
+        </div>
+    </header>
+
+    <!-- COVER -->
+    <div class="cs-cover reveal">
+        <img src="./assets/images/Macbook-Air-nolaenergy.net.webp" alt="Nola Energy site">
+    </div>
+
+    <hr class="cs-rule">
+
+    <!-- RESULTS -->
+    <section class="cs-results reveal">
+        <p class="cs-label">Results</p>
+
+        <div class="cs-results__grid">
+
+            <div class="cs-result">
+                <div class="cs-result__num">Immediate</div>
+                <div class="cs-result__text">
+                    Core services communicated within the first screen
+                </div>
+            </div>
+
+            <div class="cs-result">
+                <div class="cs-result__num">Structured</div>
+                <div class="cs-result__text">
+                    Clear hierarchy guiding users from introduction to action
+                </div>
+            </div>
+
+            <div class="cs-result">
+                <div class="cs-result__num">Search-ready</div>
+                <div class="cs-result__text">
+                    Semantic structure improving indexing and discoverability
+                </div>
+            </div>
+
         </div>
     </section>
 
+    <hr class="cs-rule">
+
     <!-- OVERVIEW -->
-    <section class="container section narrow">
-        <h2>Overview</h2>
-        <p>
+    <section class="cs-section cs-section--narrow reveal">
+        <p class="cs-label">Overview</p>
+        <h2 class="cs-h2">A business clarified.<br>A presence established.</h2>
+        <p class="cs-body">
             This project involved designing and developing a landing page for Nola Energy,
             with a focus on presenting their services clearly and improving their visibility
-            on search engines. The goal was to create a fast, structured experience that
-            helps visitors understand the offer immediately.
+            on search engines.
+        </p>
+        <p class="cs-body">
+            The goal was to create a fast, structured experience that helps visitors
+            understand the offer immediately while supporting long-term discoverability.
         </p>
     </section>
 
+    <hr class="cs-rule">
+
     <!-- PROBLEM & SOLUTION -->
-    <section class="container section probz">
-        <div class="grid">
-            <div class="card">
-                <h3>Problem</h3>
+    <section class="cs-section reveal">
+        <p class="cs-label">Challenge & Solution</p>
+
+        <div class="cs-ps">
+            <div class="cs-ps__col cs-ps__col--problem">
+                <div class="cs-ps__head">Problem</div>
                 <ul>
-                    <li>No clear online presentation of services</li>
-                    <li>Low visibility on search engines</li>
-                    <li>Lack of structure for guiding user attention</li>
+                    <li><span>–</span>No clear online presentation of services</li>
+                    <li><span>–</span>Low visibility on search engines</li>
+                    <li><span>–</span>Lack of structure for guiding user attention</li>
                 </ul>
             </div>
 
-            <div class="card">
-                <h3>Solution</h3>
+            <div class="cs-ps__col cs-ps__col--solution">
+                <div class="cs-ps__head">Solution</div>
                 <ul>
-                    <li>Developed a structured, responsive landing page</li>
-                    <li>Used semantic HTML to improve SEO and indexing</li>
-                    <li>Applied clear hierarchy to communicate the offer quickly</li>
+                    <li><span>→</span>Developed a structured, responsive landing page</li>
+                    <li><span>→</span>Used semantic HTML to improve SEO and indexing</li>
+                    <li><span>→</span>Applied clear hierarchy for fast comprehension</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- IMAGE -->
-    <section class="container section responsive-img">
-        <img class="full-img" src="./assets/images/Macbook-Air-nolaenergy.nett.webp" alt="">
-    </section>
+    <div class="cs-cover cs-cover--secondary reveal">
+        <img src="./assets/images/Macbook-Air-nolaenergy.nett.webp" alt="Full site view">
+    </div>
+
+    <hr class="cs-rule">
 
     <!-- PROCESS -->
-    <section class="container section narrow">
-        <h2>Process</h2>
+    <section class="cs-section cs-section--narrow reveal">
+        <p class="cs-label">Process</p>
+        <h2 class="cs-h2">How it was approached</h2>
 
-        <div class="steps">
-            <div><span>01</span>
-                <p>Defined content structure and key messaging</p>
+        <div class="cs-steps">
+            <div class="cs-step">
+                <span class="cs-step__num">01</span>
+                <div>
+                    <div class="cs-step__title">Structure</div>
+                    <p class="cs-step__body">Defined content hierarchy and key messaging.</p>
+                </div>
             </div>
-            <div><span>02</span>
-                <p>Planned layout for fast comprehension</p>
+
+            <div class="cs-step">
+                <span class="cs-step__num">02</span>
+                <div>
+                    <div class="cs-step__title">Clarity</div>
+                    <p class="cs-step__body">Planned layout to ensure fast comprehension.</p>
+                </div>
             </div>
-            <div><span>03</span>
-                <p>Developed responsive interface</p>
+
+            <div class="cs-step">
+                <span class="cs-step__num">03</span>
+                <div>
+                    <div class="cs-step__title">Build</div>
+                    <p class="cs-step__body">Developed a responsive interface across devices.</p>
+                </div>
             </div>
-            <div><span>04</span>
-                <p>Optimized structure for search engine visibility</p>
+
+            <div class="cs-step">
+                <span class="cs-step__num">04</span>
+                <div>
+                    <div class="cs-step__title">SEO</div>
+                    <p class="cs-step__body">Optimised semantic structure for search visibility.</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <hr class="cs-rule">
 
     <!-- IMPACT -->
-    <section class="container section narrow">
-        <div class="impact">
-            <h2>Impact</h2>
-            <p>
-                The final result is a clear and accessible landing page that communicates
-                Nola Energy’s services within seconds. The improved structure supports better
-                search visibility while giving potential clients a direct and confident
-                understanding of the business.
-            </p>
-        </div>
+    <section class="cs-section cs-section--narrow reveal">
+        <p class="cs-label">Impact</p>
+        <h2 class="cs-h2">From unclear to confident</h2>
+        <p class="cs-body">
+            The final result is a clear and accessible landing page that communicates
+            Nola Energy’s services within seconds. The improved structure supports better
+            search visibility while giving potential clients a direct and confident
+            understanding of the business.
+        </p>
     </section>
 
+    <hr class="cs-rule">
+
     <!-- TECH -->
-    <section class="container section narrow">
-        <h2>Tech Stack</h2>
-        <div class="tech-stack">
+    <section class="cs-section cs-section--narrow reveal">
+        <p class="cs-label">Tech Stack</p>
+        <div class="cs-tech">
             <span>HTML5</span>
             <span>CSS3</span>
             <span>JavaScript</span>
         </div>
     </section>
 
-    <!-- NEXT PROJECT -->
-    <section class="container next">
-        <p>Next Project</p>
-        <h3>Designer Portfolio →</h3>
-    </section>
+    <hr class="cs-rule">
+
+    <!-- NAV -->
+    <div class="cs-proj-nav reveal">
+        <a href="caseTIM.html" class="cs-proj-nav__card">
+            <span class="cs-proj-nav__dir">← Previous</span>
+            <span class="cs-proj-nav__title">Timilehin's Portfolio</span>
+            <span class="cs-proj-nav__sub">Creative · Portfolio</span>
+        </a>
+
+        <a href="caseAOS.html" class="cs-proj-nav__card cs-proj-nav__card--right">
+            <span class="cs-proj-nav__dir">Next →</span>
+            <span class="cs-proj-nav__title">AOS Projects LTD</span>
+            <span class="cs-proj-nav__sub">Construction · Web</span>
+        </a>
+    </div>
+
+    <footer class="cs-footer">
+        <a href="index.html">
+            <div class="logo-footer">oLSan.</div>
+        </a>
+        <a href="mailto:ajayimarvell@gmail.com" class="cs-footer__email">
+            ajayimarvell@gmail.com
+        </a>
+    </footer>
+
+    <script src="./case.js"></script>
 </body>
 
 </html>

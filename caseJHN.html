@@ -4,120 +4,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>John's Portfolio — Case Study · oLSan.</title>
     <link rel="stylesheet" href="./css/case.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
 
-    <section class="container hero">
-        <div class="hero-text">
-            <p class="eyebrow">Case Study</p>
-            <h1>John's Designer Portfolio</h1>
-            <p class="category">FIGMA TO CODE / PORTFOLIO</p>
+    <div class="read-progress" id="readProgress"></div>
 
-            <p class="desc">
-                Translated a static Figma design into a fully functional portfolio, maintaining visual precision
-                while ensuring responsiveness, performance, and a smooth user experience.
-            </p>
-            <p class="meta">Role: Frontend Development · Year: 2025</p>
+    <nav class="cs-nav" id="csNav">
+        <a href="index.html" class="cs-nav__back">← Back</a>
+        <a href="https://olsanx.github.io/Johnw-n.com/" target="_blank" class="cs-nav__live">Live Site ↗</a>
+    </nav>
 
-            <div class="links">
-                <a href="#">Live Site</a>
-                <a href="#">GitHub</a>
+    <header class="cs-hero">
+        <p class="cs-eyebrow" id="h-eye">Case Study · Figma to Code</p>
+        <h1 class="cs-title" id="h-title">John's Designer <br> Portfolio</h1>
+        <p class="cs-desc" id="h-desc">
+            Translated a precise Figma design into a fully functional, responsive portfolio,
+            keeping every pixel honest while adding performance and life.
+        </p>
+        <div class="cs-meta" id="h-meta">
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">Year</div>
+                <div class="cs-meta__val">2025</div>
+            </div>
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">Role</div>
+                <div class="cs-meta__val">Frontend Development</div>
+            </div>
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">Team</div>
+                <div class="cs-meta__val">Solo</div>
+            </div>
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">Timeline</div>
+                <div class="cs-meta__val">1 week</div>
             </div>
         </div>
+        <div class="cs-cta" id="h-cta">
+            <a href="https://olsanx.github.io/Johnw-n.com/" target="_blank" class="cs-btn cs-btn--gold">View Live Site
+                ↗</a>
+            <a href="index.html#works" class="cs-btn cs-btn--ghost">All Projects</a>
+        </div>
+    </header>
 
-        <div class="hero-img">
-            <img src="./assets/images/Macbook-Air-olsanx.github.io (1).webp" alt="project preview">
+    <div class="cs-cover reveal">
+        <img src="./assets/images/Macbook-Air-olsanx.github.io (1).webp" alt="John's Portfolio">
+    </div>
+
+    <hr class="cs-rule">
+
+    <section class="cs-results reveal">
+        <p class="cs-label">Results</p>
+        <div class="cs-results__grid">
+            <div class="cs-result">
+                <div class="cs-result__num">100%</div>
+                <div class="cs-result__text">Design fidelity maintained across all sections</div>
+            </div>
+            <div class="cs-result">
+                <div class="cs-result__num">4</div>
+                <div class="cs-result__text">Responsive breakpoints built from scratch</div>
+            </div>
+            <div class="cs-result">
+                <div class="cs-result__num">&lt;2s</div>
+                <div class="cs-result__text">Load time on mobile after asset optimisation</div>
+            </div>
         </div>
     </section>
 
-    <!-- OVERVIEW -->
-    <section class="container section narrow">
-        <h2>Overview</h2>
-        <p>
-            This project involved converting a pre-designed Figma layout into a live website.
-            The focus was on accurately implementing the design while ensuring the site performs
-            well across different devices and screen sizes.
+    <hr class="cs-rule">
+
+    <section class="cs-section cs-section--narrow reveal">
+        <p class="cs-label">Overview</p>
+        <h2 class="cs-h2">A design handed over.<br>A website shipped.</h2>
+        <p class="cs-body">
+            John had a polished Figma file ready, the visual direction was clear, but it existed only as a static
+            document. The task was to close the gap between design and delivery: turning every layout decision into
+            clean, cross-device frontend code without losing fidelity or feel.
+        </p>
+        <p class="cs-body">
+            The challenge wasn't just replicating the design, it was building in responsive behaviour the Figma
+            file didn't define, and doing it in a way that felt native to the original vision.
         </p>
     </section>
 
-    <!-- PROBLEM & SOLUTION -->
-    <section class="container section probz">
-        <div class="grid">
-            <div class="card">
-                <h3>Problem</h3>
+    <hr class="cs-rule">
+
+    <section class="cs-section reveal">
+        <p class="cs-label">Challenge & Solution</p>
+        <div class="cs-ps">
+            <div class="cs-ps__col cs-ps__col--problem">
+                <div class="cs-ps__head">Problem</div>
                 <ul>
-                    <li>Design existed only as a static Figma file</li>
-                    <li>No responsive behavior defined</li>
-                    <li>Needed accurate translation without losing visual quality</li>
+                    <li><span>–</span>Design existed only as a static Figma file</li>
+                    <li><span>–</span>No responsive behaviour defined for smaller screens</li>
+                    <li><span>–</span>Interactive states needed to be invented, not copied</li>
+                    <li><span>–</span>Performance and asset optimisation unconsidered</li>
                 </ul>
             </div>
-
-            <div class="card">
-                <h3>Solution</h3>
+            <div class="cs-ps__col cs-ps__col--solution">
+                <div class="cs-ps__head">Solution</div>
                 <ul>
-                    <li>Converted Figma design into responsive frontend code</li>
-                    <li>Maintained layout consistency across screen sizes</li>
-                    <li>Optimized for speed and smooth interaction</li>
+                    <li><span>→</span>Converted every Figma frame into semantic HTML</li>
+                    <li><span>→</span>Designed a responsive system across 4 breakpoints</li>
+                    <li><span>→</span>Added transitions true to the design language</li>
+                    <li><span>→</span>Optimised assets, deployed to GitHub Pages</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- IMAGE -->
-    <section class="container section responsive-img">
-        <img class="full-img" src="./assets/images/Macbook-Air-olsanx.github.ioo.webp" alt="">
-    </section>
+    <div class="cs-cover cs-cover--secondary reveal">
+        <img src="./assets/images/Macbook-Air-olsanx.github.ioo.webp" alt="Full site view">
+    </div>
 
-    <!-- PROCESS -->
-    <section class="container section narrow">
-        <h2>Process</h2>
+    <hr class="cs-rule">
 
-        <div class="steps">
-            <div><span>01</span>
-                <p>Reviewed Figma design and layout structure</p>
+    <section class="cs-section cs-section--narrow reveal">
+        <p class="cs-label">Process</p>
+        <h2 class="cs-h2">How I worked through it</h2>
+        <div class="cs-steps">
+            <div class="cs-step">
+                <span class="cs-step__num">01</span>
+                <div>
+                    <div class="cs-step__title">Design audit</div>
+                    <p class="cs-step__body">Combed through every Figma frame, typography scales, spacing rules, colour
+                        tokens, component patterns.</p>
+                </div>
             </div>
-            <div><span>02</span>
-                <p>Planned responsive behavior for all sections</p>
+            <div class="cs-step">
+                <span class="cs-step__num">02</span>
+                <div>
+                    <div class="cs-step__title">Responsive planning</div>
+                    <p class="cs-step__body">Mapped out how each section adapts across mobile, tablet, and desktop
+                        before writing a single line.</p>
+                </div>
             </div>
-            <div><span>03</span>
-                <p>Developed pixel-accurate frontend implementation</p>
+            <div class="cs-step">
+                <span class="cs-step__num">03</span>
+                <div>
+                    <div class="cs-step__title">Build & iterate</div>
+                    <p class="cs-step__body">Developed section by section, checking against the Figma at every stage and
+                        refining spacing and rhythm.</p>
+                </div>
             </div>
-            <div><span>04</span>
-                <p>Refined spacing, responsiveness, and performance</p>
+            <div class="cs-step">
+                <span class="cs-step__num">04</span>
+                <div>
+                    <div class="cs-step__title">Polish & ship</div>
+                    <p class="cs-step__body">Added micro-interactions, optimised images, tested across devices, deployed
+                        to GitHub Pages.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- IMPACT -->
-    <section class="container section narrow">
-        <div class="impact">
-            <h2>Impact</h2>
-            <p>
-                The final result is a clean, responsive portfolio that accurately reflects the
-                original design while delivering a fast and smooth experience. The structure
-                allows the designer’s work to be presented clearly across all devices.
-            </p>
-        </div>
-    </section>
+    <hr class="cs-rule">
 
-    <!-- TECH -->
-    <section class="container section narrow">
-        <h2>Tech Stack</h2>
-        <div class="tech-stack">
+    <section class="cs-section cs-section--narrow reveal">
+        <p class="cs-label">Tech Stack</p>
+        <div class="cs-tech">
             <span>HTML5</span>
             <span>CSS3</span>
             <span>JavaScript</span>
+            <span>Figma</span>
         </div>
     </section>
 
-    <!-- NEXT PROJECT -->
-    <section class="container next">
-        <p>Next Project</p>
-        <h3>Designer Portfolio →</h3>
-    </section>
+    <hr class="cs-rule">
+
+    <div class="cs-proj-nav reveal">
+        <a href="caseAOS.html" class="cs-proj-nav__card">
+            <span class="cs-proj-nav__dir">← Previous</span>
+            <span class="cs-proj-nav__title">AOS Projects</span>
+            <span class="cs-proj-nav__sub">Construction · Brand & Web</span>
+        </a>
+        <a href="caseTIM.html" class="cs-proj-nav__card cs-proj-nav__card--right">
+            <span class="cs-proj-nav__dir">Next →</span>
+            <span class="cs-proj-nav__title">Timilehin's Portfolio</span>
+            <span class="cs-proj-nav__sub">Creative · Portfolio</span>
+        </a>
+    </div>
+
+    <footer class="cs-footer">
+        <a href="index.html">
+            <div class="logo-footer">oLSan.</div>
+        </a>
+        <a href="mailto:ajayimarvell@gmail.com" class="cs-footer__email">ajayimarvell@gmail.com</a>
+    </footer>
+
+    <script src="./case.js"></script>
 </body>
 
 </html>

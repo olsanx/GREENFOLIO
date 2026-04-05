@@ -4,122 +4,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Timi's Portfolio — Case Study · oLSan.</title>
     <link rel="stylesheet" href="./css/case.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
 
-    <section class="container hero">
-        <div class="hero-text">
-            <p class="eyebrow">Case Study</p>
-            <h1>Timi's Creative Portfolio</h1>
-            <p class="category">CINEMATOGRAPHY / PHOTOGRAPHY</p>
+    <div class="read-progress" id="readProgress"></div>
 
-            <p class="desc">
-                Built from scratch to let the visuals lead, this portfolio uses an editorial layout
-                and subtle motion to create an immersive first impression and draw attention to the work.
-            </p>
-            <p class="meta">Role: Design & Development · Year: 2025</p>
+    <nav class="cs-nav" id="csNav">
+        <a href="index.html" class="cs-nav__back">← Back</a>
+        <a href="https://timilehinoyintoke.com" target="_blank" class="cs-nav__live">Live Site ↗</a>
+    </nav>
 
-            <div class="links">
-                <a href="#">Live Site</a>
-                <a href="#">GitHub</a>
+    <!-- HERO -->
+    <header class="cs-hero">
+        <p class="cs-eyebrow" id="h-eye">Case Study · Creative Portfolio</p>
+        <h1 class="cs-title" id="h-title">Timi's Creative <br> Portfolio</h1>
+        <p class="cs-desc" id="h-desc">
+            Built from scratch to let the visuals lead, this portfolio uses an editorial layout
+            and subtle motion to create an immersive first impression and draw attention to the work.
+        </p>
+
+        <div class="cs-meta" id="h-meta">
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">Year</div>
+                <div class="cs-meta__val">2025</div>
+            </div>
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">Role</div>
+                <div class="cs-meta__val">Design & Development</div>
+            </div>
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">Category</div>
+                <div class="cs-meta__val">Cinematography / Photography</div>
+            </div>
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">TImeline</div>
+                <div class="cs-meta__val">2 weeks</div>
             </div>
         </div>
 
-        <div class="hero-img">
-            <img src="./assets/images/Macbook-Air-www.timilehinoyintoke.com.webp" alt="project preview">
+        <div class="cs-cta" id="h-cta">
+            <a href="https://timilehinoyintoke.com" target="_blank" class="cs-btn cs-btn--gold">
+                View Live Site ↗
+            </a>
+            <a href="index.html#works" class="cs-btn cs-btn--ghost">All Projects</a>
         </div>
-    </section>
+    </header>
+
+    <!-- COVER -->
+    <div class="cs-cover reveal">
+        <img src="./assets/images/Macbook-Air-www.timilehinoyintoke.com.webp" alt="Timi Portfolio">
+    </div>
+
+    <hr class="cs-rule">
+
+    <div class="cs-result">
+        <div class="cs-result__num">Focused</div>
+        <div class="cs-result__text">
+            Layout decisions direct attention entirely to visual work
+        </div>
+    </div>
+
+    <div class="cs-result">
+        <div class="cs-result__num">Cinematic</div>
+        <div class="cs-result__text">
+            Motion and spacing combine to create an immersive viewing flow
+        </div>
+    </div>
+
+    <div class="cs-result">
+        <div class="cs-result__num">Seamless</div>
+        <div class="cs-result__text">
+            Responsive behaviour maintains consistency across screen sizes
+        </div>
+    </div>
+
+    <hr class="cs-rule">
 
     <!-- OVERVIEW -->
-    <section class="container section narrow">
-        <h2>Overview</h2>
-        <p>
+    <section class="cs-section cs-section--narrow reveal">
+        <p class="cs-label">Overview</p>
+        <h2 class="cs-h2">A vision defined.<br>A presence created.</h2>
+        <p class="cs-body">
             This project involved designing and developing a portfolio for a cinematographer
             and visual creative who needed a strong digital presence. The goal was to create
             a platform that presents visual work with clarity, atmosphere, and impact.
         </p>
     </section>
 
+    <hr class="cs-rule">
+
     <!-- PROBLEM & SOLUTION -->
-    <section class="container section probz">
-        <div class="grid">
-            <div class="card">
-                <h3>Problem</h3>
+    <section class="cs-section reveal">
+        <p class="cs-label">Challenge & Solution</p>
+
+        <div class="cs-ps">
+            <div class="cs-ps__col cs-ps__col--problem">
+                <div class="cs-ps__head">Problem</div>
                 <ul>
-                    <li>No existing online portfolio</li>
-                    <li>No structured way to present visual work</li>
-                    <li>Needed a strong first impression to attract clients</li>
+                    <li><span>–</span>No existing online portfolio</li>
+                    <li><span>–</span>No structured way to present visual work</li>
+                    <li><span>–</span>Needed a strong first impression to attract clients</li>
                 </ul>
             </div>
 
-            <div class="card">
-                <h3>Solution</h3>
+            <div class="cs-ps__col cs-ps__col--solution">
+                <div class="cs-ps__head">Solution</div>
                 <ul>
-                    <li>Designed and developed a portfolio from scratch</li>
-                    <li>Used an editorial layout to let visuals take priority</li>
-                    <li>Added subtle motion to guide attention without distraction</li>
+                    <li><span>→</span>Designed and developed a portfolio from scratch</li>
+                    <li><span>→</span>Used an editorial layout to let visuals take priority</li>
+                    <li><span>→</span>Added subtle motion to guide attention without distraction</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- IMAGE -->
-    <section class="container section responsive-img">
-        <img class="full-img" src="./assets/images/Macbook-Air-www.timilehinoyintoke.comm.webp" alt="">
-    </section>
+    <div class="cs-cover cs-cover--secondary reveal">
+        <img src="./assets/images/Macbook-Air-www.timilehinoyintoke.comm.webp" alt="Full site view">
+    </div>
+
+    <hr class="cs-rule">
 
     <!-- PROCESS -->
-    <section class="container section narrow">
-        <h2>Process</h2>
+    <section class="cs-section cs-section--narrow reveal">
+        <p class="cs-label">Process</p>
+        <h2 class="cs-h2">How it came together</h2>
 
-        <div class="steps">
-            <div><span>01</span>
-                <p>Defined visual direction and content flow</p>
+        <div class="cs-steps">
+            <div class="cs-step">
+                <span class="cs-step__num">01</span>
+                <div>
+                    <div class="cs-step__title">Direction</div>
+                    <p class="cs-step__body">Defined visual direction and content flow to match the creative identity.
+                    </p>
+                </div>
             </div>
-            <div><span>02</span>
-                <p>Structured layout to highlight imagery first</p>
+
+            <div class="cs-step">
+                <span class="cs-step__num">02</span>
+                <div>
+                    <div class="cs-step__title">Layout</div>
+                    <p class="cs-step__body">Structured an editorial layout that prioritises imagery and storytelling.
+                    </p>
+                </div>
             </div>
-            <div><span>03</span>
-                <p>Developed responsive interface using Bootstrap</p>
+
+            <div class="cs-step">
+                <span class="cs-step__num">03</span>
+                <div>
+                    <div class="cs-step__title">Build</div>
+                    <p class="cs-step__body">Developed a responsive interface using HTML, CSS, JavaScript, and
+                        Bootstrap.</p>
+                </div>
             </div>
-            <div><span>04</span>
-                <p>Refined motion for smooth, unobtrusive transitions</p>
+
+            <div class="cs-step">
+                <span class="cs-step__num">04</span>
+                <div>
+                    <div class="cs-step__title">Motion</div>
+                    <p class="cs-step__body">Refined motion to create smooth, unobtrusive transitions.</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <hr class="cs-rule">
 
     <!-- IMPACT -->
-    <section class="container section narrow">
-        <div class="impact">
-            <h2>Impact</h2>
-            <p>
-                The result is a visually driven portfolio that immediately captures attention
-                and allows the work to speak for itself. The layout and motion guide visitors
-                naturally, creating a smooth viewing experience that reinforces the creator’s style and presence.
-            </p>
-        </div>
+    <section class="cs-section cs-section--narrow reveal">
+        <p class="cs-label">Impact</p>
+        <h2 class="cs-h2">Letting the work speak</h2>
+        <p class="cs-body">
+            The result is a visually driven portfolio that immediately captures attention
+            and allows the work to speak for itself. The layout and motion guide visitors
+            naturally, creating a smooth viewing experience that reinforces the creator’s style and presence.
+        </p>
     </section>
 
+    <hr class="cs-rule">
+
     <!-- TECH -->
-    <section class="container section narrow">
-        <h2>Tech Stack</h2>
-        <div class="tech-stack">
+    <section class="cs-section cs-section--narrow reveal">
+        <p class="cs-label">Tech Stack</p>
+        <div class="cs-tech">
             <span>HTML</span>
             <span>CSS</span>
             <span>JavaScript</span>
             <span>Bootstrap</span>
-
         </div>
     </section>
 
-    <!-- NEXT PROJECT -->
-    <section class="container next">
-        <p>Next Project</p>
-        <h3>Designer Portfolio →</h3>
-    </section>
+    <hr class="cs-rule">
+
+    <!-- PROJECT NAV -->
+    <div class="cs-proj-nav reveal">
+        <a href="caseJHN.html" class="cs-proj-nav__card">
+            <span class="cs-proj-nav__dir">← Previous</span>
+            <span class="cs-proj-nav__title">John's Portfolio</span>
+            <span class="cs-proj-nav__sub">Design · Portfolio</span>
+        </a>
+
+        <a href="caseNOLA.html" class="cs-proj-nav__card cs-proj-nav__card--right">
+            <span class="cs-proj-nav__dir">Next →</span>
+            <span class="cs-proj-nav__title">Nola Energy</span>
+            <span class="cs-proj-nav__sub">Energy · Web</span>
+        </a>
+    </div>
+
+    <footer class="cs-footer">
+        <a href="index.html">
+            <div class="logo-footer">oLSan.</div>
+        </a>
+        <a href="mailto:ajayimarvell@gmail.com" class="cs-footer__email">
+            ajayimarvell@gmail.com
+        </a>
+    </footer>
+
+    <script src="./case.js"></script>
 </body>
 
 </html>

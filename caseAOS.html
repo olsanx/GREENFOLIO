@@ -4,110 +4,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AOS Projects — Case Study · oLSan.</title>
     <link rel="stylesheet" href="./css/case.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
 
-    <section class="container hero">
-        <div class="hero-text">
-            <p class="eyebrow">Case Study</p>
-            <h1>AOS Projects Management Limited</h1>
-            <p class="category">CONSTRUCTION BRAND SITE</p>
+    <div class="read-progress" id="readProgress"></div>
 
-            <p class="desc">
-                A growing construction firm had the capability, but nothing online to prove it. Built from scratch to
-                establish credibility, showcase work, and make contact frictionless.
-            </p>
+    <nav class="cs-nav" id="csNav">
+        <a href="index.html" class="cs-nav__back">← Back</a>
+        <a href="https://aosprojects.com" target="_blank" class="cs-nav__live">Live Site ↗</a>
+    </nav>
 
-            <p class="meta">Role: Design & Development · Year: 2025</p>
+    <!-- HERO -->
+    <header class="cs-hero">
+        <p class="cs-eyebrow" id="h-eye">Case Study · Construction Brand Site</p>
+        <h1 class="cs-title" id="h-title">AOS Projects <br> Management Limited</h1>
+        <p class="cs-desc" id="h-desc">
+            A growing construction firm had the capability, but nothing online to prove it.
+            Built to establish credibility, showcase work, and make client contact frictionless.
+        </p>
 
-            <div class="links">
-                <a href="#">Live Site</a>
-                <a href="#">GitHub</a>
+        <div class="cs-meta" id="h-meta">
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">Year</div>
+                <div class="cs-meta__val">2025</div>
+            </div>
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">Role</div>
+                <div class="cs-meta__val">Design & Development</div>
+            </div>
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">Type</div>
+                <div class="cs-meta__val">Brand Website</div>
+            </div>
+            <div class="cs-meta__item">
+                <div class="cs-meta__key">Focus</div>
+                <div class="cs-meta__val">Credibility & Conversion</div>
             </div>
         </div>
 
-        <div class="hero-img">
-            <img src="./assets/images/Macbook-Air-www.aosprojects.com.webp" alt="project preview">
+        <div class="cs-cta" id="h-cta">
+            <a href="https://aosprojects.com" target="_blank" class="cs-btn cs-btn--gold">
+                View Live Site ↗
+            </a>
+            <a href="index.html#works" class="cs-btn cs-btn--ghost">All Projects</a>
+        </div>
+    </header>
+
+    <!-- COVER -->
+    <div class="cs-cover reveal">
+        <img src="./assets/images/Macbook-Air-www.aosprojects.com.webp" alt="AOS Projects site">
+    </div>
+
+    <hr class="cs-rule">
+
+    <!-- RESULTS -->
+    <section class="cs-results reveal">
+        <p class="cs-label">Results</p>
+
+        <div class="cs-results__grid">
+
+            <div class="cs-result">
+                <div class="cs-result__num">Credible</div>
+                <div class="cs-result__text">
+                    Established a professional online presence for client trust
+                </div>
+            </div>
+
+            <div class="cs-result">
+                <div class="cs-result__num">Accessible</div>
+                <div class="cs-result__text">
+                    Clear structure allowing visitors to understand services instantly
+                </div>
+            </div>
+
+            <div class="cs-result">
+                <div class="cs-result__num">Direct</div>
+                <div class="cs-result__text">
+                    Live chat integration enabling immediate client communication
+                </div>
+            </div>
+
         </div>
     </section>
 
+    <hr class="cs-rule">
+
     <!-- OVERVIEW -->
-    <section class="container section narrow">
-        <h2>Overview</h2>
-        <p>
+    <section class="cs-section cs-section--narrow reveal">
+        <p class="cs-label">Overview</p>
+        <h2 class="cs-h2">From invisible to established</h2>
+        <p class="cs-body">
             This project involved building a website for a growing construction company
-            that previously had no online presence. The goal was to create a platform
-            that builds credibility, showcases completed work, and allows clients to easily get in touch.
+            that previously had no online presence.
+        </p>
+        <p class="cs-body">
+            The goal was to create a platform that builds credibility, showcases completed work,
+            and provides a clear, frictionless way for potential clients to get in touch.
         </p>
     </section>
 
+    <hr class="cs-rule">
+
     <!-- PROBLEM & SOLUTION -->
-    <section class="container section probz">
-        <div class="grid">
-            <div class="card">
-                <h3>Problem</h3>
+    <section class="cs-section reveal">
+        <p class="cs-label">Challenge & Solution</p>
+
+        <div class="cs-ps">
+            <div class="cs-ps__col cs-ps__col--problem">
+                <div class="cs-ps__head">Problem</div>
                 <ul>
-                    <li>No website or online presence</li>
-                    <li>No structured project showcase</li>
-                    <li>No easy way for clients to reach out</li>
+                    <li><span>–</span>No website or online presence</li>
+                    <li><span>–</span>No structured project showcase</li>
+                    <li><span>–</span>No easy way for clients to reach out</li>
                 </ul>
             </div>
 
-            <div class="card">
-                <h3>Solution</h3>
+            <div class="cs-ps__col cs-ps__col--solution">
+                <div class="cs-ps__head">Solution</div>
                 <ul>
-                    <li>Built a responsive and functional website</li>
-                    <li>Clear project showcase with consistent visual hierarchy</li>
-                    <li>Integrated live chat for instant communication</li>
+                    <li><span>→</span>Built a responsive and functional website</li>
+                    <li><span>→</span>Created a structured project showcase</li>
+                    <li><span>→</span>Integrated live chat for instant communication</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- IMAGE -->
-    <section class="container section responsive-img">
-        <img class="full-img" src="./assets/images/Macbook-Air-www.aosprojects.comm.webp" alt="">
-    </section>
+    <div class="cs-cover cs-cover--secondary reveal">
+        <img src="./assets/images/Macbook-Air-www.aosprojects.comm.webp" alt="Full site view">
+    </div>
+
+    <hr class="cs-rule">
 
     <!-- PROCESS -->
-    <section class="container section narrow">
-        <h2>Process</h2>
+    <section class="cs-section cs-section--narrow reveal">
+        <p class="cs-label">Process</p>
+        <h2 class="cs-h2">How it was built</h2>
 
-        <div class="steps">
-            <div><span>01</span>
-                <p>Planned structure and user flow</p>
+        <div class="cs-steps">
+            <div class="cs-step">
+                <span class="cs-step__num">01</span>
+                <div>
+                    <div class="cs-step__title">Planning</div>
+                    <p class="cs-step__body">Defined structure and user flow for clarity.</p>
+                </div>
             </div>
-            <div><span>02</span>
-                <p>Designed clean, clear layout</p>
+
+            <div class="cs-step">
+                <span class="cs-step__num">02</span>
+                <div>
+                    <div class="cs-step__title">Design</div>
+                    <p class="cs-step__body">Created a clean layout focused on readability and trust.</p>
+                </div>
             </div>
-            <div><span>03</span>
-                <p>Built responsive interface</p>
+
+            <div class="cs-step">
+                <span class="cs-step__num">03</span>
+                <div>
+                    <div class="cs-step__title">Development</div>
+                    <p class="cs-step__body">Built a responsive interface across devices.</p>
+                </div>
             </div>
-            <div><span>04</span>
-                <p>Integrated live chat feature</p>
+
+            <div class="cs-step">
+                <span class="cs-step__num">04</span>
+                <div>
+                    <div class="cs-step__title">Enhancement</div>
+                    <p class="cs-step__body">Integrated live chat to reduce friction in communication.</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <hr class="cs-rule">
 
     <!-- IMPACT -->
-    <section class="container section narrow">
-        <div class="impact">
-            <h2>Impact</h2>
-            <p>
-                AOS Projects now has a digital presence that holds its own against larger, better-funded competitors. A
-                first-time visitor understands the offer within seconds and has a direct, frictionless path to get in
-                touch, whether on desktop or mobile.
-            </p>
-        </div>
+    <section class="cs-section cs-section--narrow reveal">
+        <p class="cs-label">Impact</p>
+        <h2 class="cs-h2">A business that now speaks for itself</h2>
+        <p class="cs-body">
+            AOS Projects now has a digital presence that holds its own against larger competitors.
+            A first-time visitor understands the offer within seconds and has a direct, frictionless
+            path to get in touch, whether on desktop or mobile.
+        </p>
     </section>
 
+    <hr class="cs-rule">
+
     <!-- TECH -->
-    <section class="container section narrow">
-        <h2>Tech Stack</h2>
-        <div class="tech-stack">
+    <section class="cs-section cs-section--narrow reveal">
+        <p class="cs-label">Tech Stack</p>
+        <div class="cs-tech">
             <span>HTML</span>
             <span>CSS</span>
             <span>JavaScript</span>
@@ -116,11 +209,33 @@
         </div>
     </section>
 
-    <!-- NEXT PROJECT -->
-    <section class="container next">
-        <p>Next Project</p>
-        <h3>Designer Portfolio →</h3>
-    </section>
+    <hr class="cs-rule">
+
+    <!-- NAV -->
+    <div class="cs-proj-nav reveal">
+        <a href="caseNOLA.html" class="cs-proj-nav__card">
+            <span class="cs-proj-nav__dir">← Previous</span>
+            <span class="cs-proj-nav__title">Nola Energy</span>
+            <span class="cs-proj-nav__sub">Energy · Web</span>
+        </a>
+
+        <a href="caseJHN.html" class="cs-proj-nav__card cs-proj-nav__card--right">
+            <span class="cs-proj-nav__dir">Next →</span>
+            <span class="cs-proj-nav__title">John's Portfolio</span>
+            <span class="cs-proj-nav__sub">Design · Portfolio</span>
+        </a>
+    </div>
+
+    <footer class="cs-footer">
+        <a href="index.html">
+            <div class="logo-footer">oLSan.</div>
+        </a>
+        <a href="mailto:ajayimarvell@gmail.com" class="cs-footer__email">
+            ajayimarvell@gmail.com
+        </a>
+    </footer>
+
+    <script src="./case.js"></script>
 </body>
 
 </html>
